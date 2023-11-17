@@ -21,6 +21,17 @@ add_action('admin_menu', 'custom_admin_page_setup');
 function custom_admin_page_render() {
     echo "<h1>".esc_html(get_admin_page_title())."</h1>";
 
+    /**
+     * Without Reduce
+     */
+
+//    $post_data = wp_remote_get('https://jsonplaceholder.typicode.com/posts');
+//    $post_data = wp_remote_retrieve_body($post_data);
+//    $post_data = json_decode($post_data);
+
+    /**
+     * For Reduce
+     */
     $post_data = get_transient('demo-data');
 
     if (! $post_data){
